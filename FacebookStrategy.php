@@ -123,7 +123,7 @@ class FacebookStrategy extends OpauthStrategy{
 	 * @return array Parsed JSON results
 	 */
 	private function me($access_token){
-		$me = $this->serverGet('https://graph.facebook.com/v2.3/me', array('access_token' => $access_token), null, $headers);
+		$me = $this->serverGet('https://graph.facebook.com/v2.7/me', array('access_token' => $access_token, 'fields' => 'id,name,email,birthday,first_name,last_name,link'), null, $headers);
 		if (!empty($me)){
 			return json_decode($me);
 		}
